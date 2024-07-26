@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Including the HTMX library from a CDN -->
+  <script src="https://unpkg.com/htmx.org@1.5.0"></script>
+  <title>HTMX Tutorial</title>
+</head>
+<body>
+  <h1>HTMX Basic Tutorial</h1>
+
+  <!-- Button to Load User Info -->
+  <!-- 
+    hx-get: Sends a GET request to the specified URL (/user-info) when the button is clicked.
+    hx-target: Specifies the element (#result) where the server response will be inserted.
+    hx-swap: Determines how the response will be inserted into the target element (innerHTML will replace the existing content).
+  -->
+  <button hx-get="/user-info" hx-target="#result" hx-swap="innerHTML">
+    Load User Info
+  </button>
+  <div id="result"></div>
+
+
+  <!-- Button to Load User Info -->
+  <!-- 
+    hx-get: Sends a GET request to the specified URL (/user-info) when the button is clicked.
+    hx-target: Specifies the element (#result) where the server response will be inserted.
+    hx-swap: Determines how the response will be inserted into the target element (innerHTML will replace the existing content).
+  -->
+  <h2>Submit User Info</h2>
+  <form hx-post="/submit-info" hx-target="#result" hx-swap="innerHTML">
+    <!-- Form fields for user input -->
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <!-- Submit button for the form -->
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
